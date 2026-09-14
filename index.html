@@ -1,201 +1,343 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Yuzelka Games</title>
+    <title>Yuzelka Games</title>
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+    <style>
 
-body{
-    background:#f7f3ea;
-    color:#333;
-    font-family:"Yu Gothic",sans-serif;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-.container{
-    display:flex;
-    min-height:100vh;
-}
-
-/* 左メニュー */
-.sidebar{
-    width:220px;
-    background:#efe7d8;
-    padding:40px 20px;
-    border-right:1px solid #ddd;
-
-    position:fixed;
-    top:0;
-    left:0;
-    height:100vh;
-}
-
-.logo{
-    font-size:28px;
-    font-weight:bold;
-    margin-bottom:40px;
-}
-
-.menu button{
-    width:100%;
-    display:block;
-
-    border:none;
-    background:none;
-
-    text-align:left;
-    color:#555;
-
-    padding:12px 16px;
-    margin-bottom:8px;
-
-    border-radius:8px;
-
-    font-size:16px;
-    cursor:pointer;
-
-    transition:.2s;
-}
-
-.menu button:hover{
-    background:white;
-}
-
-.menu button.active{
-    background:white;
-    font-weight:bold;
-}
+        body {
+            background: #f7f3ea;
+            color: #333;
+            font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+        }
 
 
-/* 右側 */
-.content{
-    margin-left:220px;
-    width:calc(100% - 220px);
-    padding:60px;
-}
+        /* =========================
+           全体
+        ========================= */
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
 
 
-/* ページ切り替え */
-.page{
-    display:none;
-}
+        /* =========================
+           左メニュー
+        ========================= */
 
-.page.active{
-    display:block;
-}
+        .sidebar {
+            width: 220px;
+            height: 100vh;
 
+            position: fixed;
+            top: 0;
+            left: 0;
 
-/* 共通 */
-h1{
-    font-size:40px;
-    margin-bottom:15px;
-}
+            background: #efe7d8;
+            border-right: 1px solid #ddd;
 
-.subtitle{
-    color:#777;
-    margin-bottom:40px;
-}
+            padding: 40px 20px;
+        }
 
 
-/* ホーム */
-.profile{
-    background:white;
-    padding:35px;
-    border-radius:16px;
+        /* サイト名 */
 
-    box-shadow:0 4px 16px rgba(0,0,0,.08);
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
 
-    line-height:1.9;
-}
+            margin-bottom: 40px;
 
-.profile h2{
-    margin-bottom:20px;
-}
-
-.profile a{
-    color:#666;
-}
+            letter-spacing: 1px;
+        }
 
 
-/* ゲーム紹介 */
-.game-card{
-    background:white;
+        /* メニューボタン */
 
-    border-radius:16px;
-    padding:28px;
+        .menu button {
+            width: 100%;
+            display: block;
 
-    box-shadow:0 4px 16px rgba(0,0,0,.08);
-}
+            border: none;
+            background: none;
 
-.game-image{
-    width:100%;
-    max-width:800px;
+            text-align: left;
 
-    display:block;
+            color: #555;
 
-    border-radius:10px;
+            padding: 12px 16px;
+            margin-bottom: 8px;
 
-    margin-bottom:25px;
-}
+            border-radius: 8px;
 
-.game-card h2{
-    font-size:30px;
-    margin-bottom:15px;
-}
+            font-size: 16px;
+            font-family: inherit;
 
-.game-card p{
-    color:#666;
-    line-height:1.9;
-}
+            cursor: pointer;
 
-.play-button{
-    display:inline-block;
-
-    margin-top:25px;
-    padding:13px 30px;
-
-    background:#d8c8aa;
-    color:#333;
-
-    text-decoration:none;
-
-    border-radius:8px;
-
-    transition:.2s;
-}
-
-.play-button:hover{
-    background:#c8b48d;
-    transform:translateY(-2px);
-}
+            transition: 0.2s;
+        }
 
 
-/* スマホ */
-@media(max-width:700px){
+        /* マウスを乗せたとき */
 
-    .sidebar{
-        width:160px;
-    }
+        .menu button:hover {
+            background: white;
+        }
 
-    .content{
-        margin-left:160px;
-        width:calc(100% - 160px);
-        padding:30px 20px;
-    }
 
-    .logo{
-        font-size:22px;
-    }
+        /* 現在選択中 */
 
-}
-</style>
+        .menu button.active {
+            background: white;
+            font-weight: bold;
+        }
+
+
+        /* 区切り線 */
+
+        .menu hr {
+            border: none;
+            border-top: 1px solid #d5ccbd;
+
+            margin: 20px 5px;
+        }
+
+
+        /* 感想・バグ報告 */
+
+        .feedback-link {
+            display: block;
+
+            color: #777;
+
+            text-decoration: none;
+
+            padding: 12px 16px;
+
+            border-radius: 8px;
+
+            font-size: 14px;
+
+            transition: 0.2s;
+        }
+
+
+        .feedback-link:hover {
+            background: white;
+            color: #333;
+        }
+
+
+        /* =========================
+           右側
+        ========================= */
+
+        .content {
+            margin-left: 220px;
+
+            width: calc(100% - 220px);
+
+            padding: 60px;
+
+            max-width: 1200px;
+        }
+
+
+        /* =========================
+           ページ切り替え
+        ========================= */
+
+        .page {
+            display: none;
+        }
+
+
+        .page.active {
+            display: block;
+        }
+
+
+        /* =========================
+           共通タイトル
+        ========================= */
+
+        h1 {
+            font-size: 40px;
+
+            margin-bottom: 15px;
+
+            letter-spacing: 1px;
+        }
+
+
+        .subtitle {
+            color: #777;
+
+            margin-bottom: 40px;
+        }
+
+
+        /* =========================
+           ホーム
+        ========================= */
+
+        .profile {
+            background: white;
+
+            padding: 35px;
+
+            border-radius: 16px;
+
+            box-shadow:
+                0 4px 16px rgba(0, 0, 0, 0.08);
+
+            line-height: 1.9;
+        }
+
+
+        .profile h2 {
+            margin-bottom: 20px;
+        }
+
+
+        .profile a {
+            color: #666;
+
+            text-decoration: none;
+
+            border-bottom: 1px solid #aaa;
+        }
+
+
+        .profile a:hover {
+            color: #222;
+        }
+
+
+        /* =========================
+           ゲーム紹介
+        ========================= */
+
+        .game-card {
+            background: white;
+
+            border-radius: 16px;
+
+            padding: 28px;
+
+            box-shadow:
+                0 4px 16px rgba(0, 0, 0, 0.08);
+        }
+
+
+        /* タイトル画像 */
+
+        .game-image {
+            width: 100%;
+
+            max-width: 800px;
+
+            display: block;
+
+            border-radius: 10px;
+
+            margin-bottom: 25px;
+        }
+
+
+        /* ゲームタイトル */
+
+        .game-card h2 {
+            font-size: 30px;
+
+            margin-bottom: 15px;
+        }
+
+
+        /* 説明 */
+
+        .game-card p {
+            color: #666;
+
+            line-height: 1.9;
+        }
+
+
+        /* プレイボタン */
+
+        .play-button {
+            display: inline-block;
+
+            margin-top: 25px;
+
+            padding: 13px 30px;
+
+            background: #d8c8aa;
+
+            color: #333;
+
+            text-decoration: none;
+
+            border-radius: 8px;
+
+            transition: 0.2s;
+        }
+
+
+        .play-button:hover {
+            background: #c8b48d;
+
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================
+           スマホ・狭い画面
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            .sidebar {
+                width: 160px;
+
+                padding: 30px 15px;
+            }
+
+
+            .content {
+                margin-left: 160px;
+
+                width: calc(100% - 160px);
+
+                padding: 30px 20px;
+            }
+
+
+            .logo {
+                font-size: 22px;
+            }
+
+
+            h1 {
+                font-size: 30px;
+            }
+
+        }
+
+    </style>
+
 </head>
 
 
@@ -203,14 +345,22 @@ h1{
 
 <div class="container">
 
-    <!-- 左メニュー -->
+
+    <!-- =========================
+         左メニュー
+    ========================== -->
+
     <aside class="sidebar">
 
         <div class="logo">
             Yuzelka
         </div>
 
+
         <nav class="menu">
+
+
+            <!-- ホーム -->
 
             <button
                 id="homeButton"
@@ -220,6 +370,9 @@ h1{
                 ホーム
             </button>
 
+
+            <!-- 盲 -->
+
             <button
                 id="mouButton"
                 onclick="showPage('mou')"
@@ -227,39 +380,80 @@ h1{
                 盲
             </button>
 
+
+            <!-- 区切り -->
+
+            <hr>
+
+
+            <!-- 感想・バグ報告 -->
+
+            <a
+                class="feedback-link"
+                href="https://forms.gle/ihafbZWefqrDUyRBA"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                感想・バグ報告 ↗
+            </a>
+
+
         </nav>
 
     </aside>
 
 
-    <!-- 右側 -->
+
+    <!-- =========================
+         右側
+    ========================== -->
+
     <main class="content">
 
-        <!-- ホーム -->
-        <section id="home" class="page active">
 
-            <h1>Yuzelka Games</h1>
+        <!-- =====================
+             ホーム
+        ====================== -->
+
+        <section
+            id="home"
+            class="page active"
+        >
+
+            <h1>
+                Yuzelka Games
+            </h1>
+
 
             <p class="subtitle">
                 個人制作ゲームを公開しています。
             </p>
 
+
             <div class="profile">
 
-                <h2>About</h2>
+                <h2>
+                    About
+                </h2>
+
 
                 <p>
                     Yuzelkaです。<br>
                     趣味でゲームを制作しています。
                 </p>
 
+
                 <br>
+
 
                 <p>
-                    このサイトでは、制作したゲームを公開していきます。
+                    このサイトでは、
+                    制作したゲームを公開していきます。
                 </p>
 
+
                 <br>
+
 
                 <p>
                     X：
@@ -272,10 +466,22 @@ h1{
                     </a>
                 </p>
 
+
                 <br>
 
+
                 <p>
-                    感想やフォローをいただけると嬉しいです！
+                    感想やバグ報告は、
+                    左側の「感想・バグ報告」から
+                    匿名で送信できます。
+                </p>
+
+
+                <br>
+
+
+                <p>
+                    © Yuzelka
                 </p>
 
             </div>
@@ -283,30 +489,55 @@ h1{
         </section>
 
 
-        <!-- 盲 -->
-        <section id="mou" class="page">
 
-            <h1>盲</h1>
+        <!-- =====================
+             盲
+        ====================== -->
+
+        <section
+            id="mou"
+            class="page"
+        >
+
+            <h1>
+                盲
+            </h1>
+
 
             <p class="subtitle">
                 ブラウザゲーム
             </p>
 
+
             <div class="game-card">
+
+
+                <!-- タイトル画像 -->
 
                 <img
                     class="game-image"
                     src="mou/title.png"
-                    alt="盲 タイトル画面"
+                    alt="ゲーム「盲」のタイトル画面"
                 >
 
-                <h2>盲</h2>
+
+                <!-- タイトル -->
+
+                <h2>
+                    盲
+                </h2>
+
+
+                <!-- ゲーム説明 -->
 
                 <p>
                     視覚を失った主人公が、
                     感覚と周囲の情報を頼りに
                     閉ざされた部屋からの脱出を試みる。
                 </p>
+
+
+                <!-- ゲーム開始 -->
 
                 <a
                     class="play-button"
@@ -315,57 +546,86 @@ h1{
                     ゲームをプレイ
                 </a>
 
+
             </div>
 
         </section>
+
 
     </main>
 
 </div>
 
 
+
+<!-- =========================
+     ページ切り替え
+========================== -->
+
 <script>
 
-function showPage(pageName){
+function showPage(pageName) {
 
-    // 全ページを非表示
-    const pages = document.querySelectorAll(".page");
+    /* 全ページを一度非表示 */
 
-    pages.forEach(page=>{
+    const pages =
+        document.querySelectorAll(".page");
+
+    pages.forEach(page => {
+
         page.classList.remove("active");
+
     });
 
 
-    // 選択ページを表示
+    /* 選択されたページを表示 */
+
     document
         .getElementById(pageName)
-        .classList.add("active");
+        .classList
+        .add("active");
 
 
-    // メニューの選択表示を解除
-    const buttons = document.querySelectorAll(".menu button");
+    /* 左メニューの選択状態を解除 */
 
-    buttons.forEach(button=>{
+    const buttons =
+        document.querySelectorAll(".menu button");
+
+    buttons.forEach(button => {
+
         button.classList.remove("active");
+
     });
 
 
-    // 選択中のボタン
-    if(pageName === "home"){
+    /* ホーム */
+
+    if (pageName === "home") {
+
         document
             .getElementById("homeButton")
-            .classList.add("active");
+            .classList
+            .add("active");
+
     }
 
-    if(pageName === "mou"){
+
+    /* 盲 */
+
+    if (pageName === "mou") {
+
         document
             .getElementById("mouButton")
-            .classList.add("active");
+            .classList
+            .add("active");
+
     }
 
 }
 
 </script>
 
+
 </body>
+
 </html>
