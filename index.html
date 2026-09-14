@@ -3,10 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Yuzelka Games</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
 body{
     background:#f7f3ea;
@@ -25,8 +30,10 @@ body{
     background:#efe7d8;
     padding:40px 20px;
     border-right:1px solid #ddd;
-    position:sticky;
+
+    position:fixed;
     top:0;
+    left:0;
     height:100vh;
 }
 
@@ -36,49 +43,105 @@ body{
     margin-bottom:40px;
 }
 
-.menu a{
+.menu button{
+    width:100%;
     display:block;
+
+    border:none;
+    background:none;
+
+    text-align:left;
     color:#555;
-    text-decoration:none;
+
     padding:12px 16px;
     margin-bottom:8px;
+
     border-radius:8px;
+
+    font-size:16px;
+    cursor:pointer;
+
     transition:.2s;
 }
 
-.menu a:hover{
+.menu button:hover{
     background:white;
 }
+
+.menu button.active{
+    background:white;
+    font-weight:bold;
+}
+
 
 /* 右側 */
 .content{
-    flex:1;
+    margin-left:220px;
+    width:calc(100% - 220px);
     padding:60px;
 }
 
-header{
-    margin-bottom:35px;
+
+/* ページ切り替え */
+.page{
+    display:none;
 }
 
-header h1{
+.page.active{
+    display:block;
+}
+
+
+/* 共通 */
+h1{
     font-size:40px;
+    margin-bottom:15px;
 }
 
-header p{
+.subtitle{
     color:#777;
-    margin-top:10px;
+    margin-bottom:40px;
 }
 
+
+/* ホーム */
+.profile{
+    background:white;
+    padding:35px;
+    border-radius:16px;
+
+    box-shadow:0 4px 16px rgba(0,0,0,.08);
+
+    line-height:1.9;
+}
+
+.profile h2{
+    margin-bottom:20px;
+}
+
+.profile a{
+    color:#666;
+}
+
+
+/* ゲーム紹介 */
 .game-card{
     background:white;
+
     border-radius:16px;
     padding:28px;
+
     box-shadow:0 4px 16px rgba(0,0,0,.08);
 }
 
-.game-card img{
+.game-image{
     width:100%;
+    max-width:800px;
+
+    display:block;
+
     border-radius:10px;
+
     margin-bottom:25px;
 }
 
@@ -88,84 +151,221 @@ header p{
 }
 
 .game-card p{
-    line-height:1.9;
     color:#666;
+    line-height:1.9;
 }
 
-.play{
+.play-button{
     display:inline-block;
+
     margin-top:25px;
-    padding:12px 28px;
+    padding:13px 30px;
+
     background:#d8c8aa;
     color:#333;
+
     text-decoration:none;
+
     border-radius:8px;
+
+    transition:.2s;
 }
 
-.play:hover{
+.play-button:hover{
     background:#c8b48d;
+    transform:translateY(-2px);
 }
 
-footer{
-    margin-top:50px;
-    color:#777;
-}
 
-footer a{
-    color:#666;
+/* スマホ */
+@media(max-width:700px){
+
+    .sidebar{
+        width:160px;
+    }
+
+    .content{
+        margin-left:160px;
+        width:calc(100% - 160px);
+        padding:30px 20px;
+    }
+
+    .logo{
+        font-size:22px;
+    }
+
 }
 </style>
 </head>
+
 
 <body>
 
 <div class="container">
 
+    <!-- 左メニュー -->
     <aside class="sidebar">
-        <div class="logo">Yuzelka</div>
+
+        <div class="logo">
+            Yuzelka
+        </div>
 
         <nav class="menu">
-            <a href="/">🏠 ホーム</a>
-            <a href="/mou/">🎮 盲</a>
+
+            <button
+                id="homeButton"
+                class="active"
+                onclick="showPage('home')"
+            >
+                ホーム
+            </button>
+
+            <button
+                id="mouButton"
+                onclick="showPage('mou')"
+            >
+                盲
+            </button>
+
         </nav>
+
     </aside>
 
+
+    <!-- 右側 -->
     <main class="content">
 
-        <header>
+        <!-- ホーム -->
+        <section id="home" class="page active">
+
             <h1>Yuzelka Games</h1>
-            <p>個人制作ゲームを公開しています。</p>
-        </header>
 
-        <section class="game-card">
-
-            <img src="mou/title.png" alt="盲 タイトル画面">
-
-            <h2>盲</h2>
-
-            <p>
-                視覚を失った主人公が、感覚と周囲の情報を頼りに
-                閉ざされた部屋からの脱出を試みる。
+            <p class="subtitle">
+                個人制作ゲームを公開しています。
             </p>
 
-            <a class="play" href="/mou/">
-                ゲームをプレイ
-            </a>
+            <div class="profile">
+
+                <h2>About</h2>
+
+                <p>
+                    Yuzelkaです。<br>
+                    趣味でゲームを制作しています。
+                </p>
+
+                <br>
+
+                <p>
+                    このサイトでは、制作したゲームを公開していきます。
+                </p>
+
+                <br>
+
+                <p>
+                    X：
+                    <a
+                        href="https://x.com/yuzelka"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        @yuzelka
+                    </a>
+                </p>
+
+                <br>
+
+                <p>
+                    感想やフォローをいただけると嬉しいです！
+                </p>
+
+            </div>
 
         </section>
 
-        <footer>
-            X：
-            <a href="https://x.com/yuzelka" target="_blank">@yuzelka</a>
-            <br><br>
-            感想やフォローをいただけると嬉しいです！
-            <br><br>
-            © Yuzelka
-        </footer>
+
+        <!-- 盲 -->
+        <section id="mou" class="page">
+
+            <h1>盲</h1>
+
+            <p class="subtitle">
+                ブラウザゲーム
+            </p>
+
+            <div class="game-card">
+
+                <img
+                    class="game-image"
+                    src="mou/title.png"
+                    alt="盲 タイトル画面"
+                >
+
+                <h2>盲</h2>
+
+                <p>
+                    視覚を失った主人公が、
+                    感覚と周囲の情報を頼りに
+                    閉ざされた部屋からの脱出を試みる。
+                </p>
+
+                <a
+                    class="play-button"
+                    href="/mou/"
+                >
+                    ゲームをプレイ
+                </a>
+
+            </div>
+
+        </section>
 
     </main>
 
 </div>
+
+
+<script>
+
+function showPage(pageName){
+
+    // 全ページを非表示
+    const pages = document.querySelectorAll(".page");
+
+    pages.forEach(page=>{
+        page.classList.remove("active");
+    });
+
+
+    // 選択ページを表示
+    document
+        .getElementById(pageName)
+        .classList.add("active");
+
+
+    // メニューの選択表示を解除
+    const buttons = document.querySelectorAll(".menu button");
+
+    buttons.forEach(button=>{
+        button.classList.remove("active");
+    });
+
+
+    // 選択中のボタン
+    if(pageName === "home"){
+        document
+            .getElementById("homeButton")
+            .classList.add("active");
+    }
+
+    if(pageName === "mou"){
+        document
+            .getElementById("mouButton")
+            .classList.add("active");
+    }
+
+}
+
+</script>
 
 </body>
 </html>
