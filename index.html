@@ -9,70 +9,107 @@
     <style>
         body {
             margin: 0;
-            background-color: #111;
-            color: white;
-            font-family: sans-serif;
+            background: #f7f3ea;
+            color: #333;
+            font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
         }
 
         header {
             text-align: center;
-            padding: 60px 20px 40px;
-            border-bottom: 1px solid #444;
+            padding: 60px 20px 35px;
         }
 
         header h1 {
             margin: 0;
             font-size: 42px;
+            font-weight: 600;
+            letter-spacing: 2px;
         }
 
         header p {
-            color: #aaa;
+            margin-top: 12px;
+            color: #777;
         }
 
         main {
             width: 90%;
             max-width: 900px;
-            margin: 50px auto;
+            margin: 0 auto;
         }
 
-        .game {
-            border: 1px solid #555;
-            padding: 30px;
-            margin-bottom: 30px;
+        .game-card {
+            background: white;
+            border-radius: 16px;
+            padding: 28px;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+            text-align: center;
         }
 
-        .game h2 {
-            margin-top: 0;
+        .game-image {
+            width: 100%;
+            max-width: 700px;
+            border-radius: 10px;
+            display: block;
+            margin: 0 auto 25px;
+        }
+
+        .game-card h2 {
+            margin: 0 0 15px;
             font-size: 30px;
         }
 
-        .game p {
-            color: #bbb;
-            line-height: 1.8;
+        .game-card p {
+            max-width: 650px;
+            margin: 0 auto;
+            line-height: 1.9;
+            color: #666;
         }
 
         .play-button {
             display: inline-block;
-            margin-top: 15px;
-            padding: 12px 30px;
+            margin-top: 25px;
+            padding: 13px 32px;
 
-            color: white;
+            background: #d8c8aa;
+            color: #333;
+
             text-decoration: none;
-
-            border: 1px solid white;
+            border-radius: 8px;
 
             transition: 0.2s;
         }
 
         .play-button:hover {
-            background-color: white;
-            color: black;
+            background: #c9b58f;
+            transform: translateY(-2px);
         }
 
         footer {
+            margin-top: 70px;
+            padding: 35px 20px;
             text-align: center;
             color: #777;
-            margin: 80px 0 30px;
+        }
+
+        footer a {
+            color: #666;
+            text-decoration: none;
+            border-bottom: 1px solid #aaa;
+        }
+
+        footer a:hover {
+            color: #222;
+        }
+
+        .message {
+            margin-top: 12px;
+            font-size: 14px;
+        }
+
+        .copyright {
+            margin-top: 30px;
+            font-size: 13px;
+            color: #999;
         }
     </style>
 </head>
@@ -86,7 +123,14 @@
 
     <main>
 
-        <div class="game">
+        <div class="game-card">
+
+            <img
+                class="game-image"
+                src="mou/title.png"
+                alt="ゲーム「盲」のタイトル画面"
+            >
+
             <h2>盲</h2>
 
             <p>
@@ -97,12 +141,32 @@
             <a class="play-button" href="mou/">
                 ゲームをプレイ
             </a>
+
         </div>
 
     </main>
 
     <footer>
-        © Yuzella
+
+        <div>
+            X：
+            <a
+                href="https://x.com/yuzella_gm"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                @yuzella_gm
+            </a>
+        </div>
+
+        <div class="message">
+            感想やフォローをいただけると嬉しいです！
+        </div>
+
+        <div class="copyright">
+            © Yuzella
+        </div>
+
     </footer>
 
 </body>
