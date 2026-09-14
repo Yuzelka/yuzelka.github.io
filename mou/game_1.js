@@ -156,11 +156,11 @@ function drawSetting(){
     ctx.fillText("CREDIT",400,285);
 
     ctx.font = "20px 'DotGothic16'";
-    ctx.fillText("Yuzella",400,335);
+    ctx.fillText("Yuzelka",400,335);
 
 
     ctx.font = "17px 'DotGothic16'";
-    ctx.fillText("X : @ yuzella_gm",400,375);
+    ctx.fillText("X : @ yuzelka",400,375);
 
     ctx.font = "15px 'DotGothic16'";
     ctx.fillText("感想やフォローをいただけると嬉しいです！",400,420);
