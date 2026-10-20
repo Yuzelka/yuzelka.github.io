@@ -406,6 +406,14 @@
                 盲
             </button>
 
+            <!-- DELETE -->
+
+            <button
+                id="deleteButton"
+                onclick="showPage('delete')"
+            >
+                DELETE
+            </button>
 
             <!-- 区切り -->
 
@@ -600,6 +608,61 @@
 
         </section>
 
+                <!-- =====================
+             DELETE
+        ====================== -->
+
+        <section
+            id="delete"
+            class="page"
+        >
+
+            <h1>
+                DELETE
+            </h1>
+
+            <p class="subtitle">
+                ブラウザゲーム
+            </p>
+
+            <div class="game-card">
+
+                <!-- タイトル画像 -->
+                <img
+                    class="game-image"
+                    src="DELETE/title.png"
+                    alt="ゲーム「DELETE」のタイトル画面"
+                >
+
+                <!-- タイトル -->
+                <h2>
+                    DELETE
+                </h2>
+
+                <!-- ゲーム説明 -->
+                <p>
+                    ある企業の資料管理業務を担当することになった主人公。<br>
+                    指示された資料を確認し、必要な処理を行う。<br>
+                    ただ、それだけの仕事だったはずなのに……。
+                </p>
+
+                <!-- ゲーム情報 -->
+                <div class="game-info">
+                    <p>ジャンル：謎解き・ミステリー</p>
+                    <p>プレイ環境：PCブラウザのみ</p>
+                </div>
+
+                <!-- ゲーム開始 -->
+                <a
+                    class="play-button"
+                    href="/DELETE/"
+                >
+                    ゲームをプレイ
+                </a>
+
+            </div>
+
+        </section>
 
     </main>
 
@@ -665,6 +728,17 @@ function showPage(pageName) {
 
         document
             .getElementById("mouButton")
+            .classList
+            .add("active");
+
+    }
+
+    /* DELETE */
+
+    if (pageName === "delete") {
+
+        document
+            .getElementById("deleteButton")
             .classList
             .add("active");
 
